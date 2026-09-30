@@ -440,3 +440,565 @@ button{
 
             <div class="gift-icon">
                 💌
+            </div>
+
+            <div class="gift-text">
+                A Letter For You
+            </div>
+
+        </div>
+
+
+        <!-- FOURTH CHOICE -->
+
+        <div class="gift" onclick="showCake()">
+
+            <div class="gift-icon">
+                🎂
+            </div>
+
+            <div class="gift-text">
+                Birthday Cake
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PAGE 3 : PHOTO
+========================= -->
+
+<section id="page3" class="page">
+
+<div class="card">
+
+    <h1>For You ❤️</h1>
+
+    <img
+        src="photo.jpg"
+        class="photo"
+    >
+
+    <p class="love-text">
+        love you waiting you ❤️
+    </p>
+
+    <p>
+        တောသားလေးအတွက် အမှတ်တရလေးပါ 💕
+    </p>
+
+    <button class="next" onclick="goBack()">
+        Back to Surprise 🎁
+    </button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PAGE 4 : LETTER
+========================= -->
+
+<section id="page4" class="page">
+
+<div class="card">
+
+    <h1>
+        You've Got A Letter 💌
+    </h1>
+
+    <p>
+        စာလေးဖတ်ကြည့်ပါ ❤️
+    </p>
+
+    <div
+        class="envelope"
+        onclick="openLetter()"
+    >
+        💌
+    </div>
+
+
+    <div id="letter" class="letter">
+
+        <h2 class="letter-title">
+            Dear တောသားလေး ❤️
+        </h2>
+
+        <p>
+
+            အရာအားလုံးထက်ပိုချစ်တယ် ❤️
+
+            <br><br>
+
+            အဆိုအကောင်းအားလုံးအချိန်တိုင်း
+            အတူရှိနေပေးလို့ကျေးဇူးပါ။
+
+            <br><br>
+
+            အစစအရာရာဂရုစိုက်ပါ ❤️
+
+            <br><br>
+
+            တောသားမွေးနေ့ကစပြီး
+            ပျော်ရွှင်ပါစေ။
+
+            <br><br>
+
+            တောသားလေး စာမေးပွဲလဲအောင်မြင်ပါစေ။
+            ဂုဏ်ထူးတွေရပြီး
+            ကိုယ်နဲ့အတူတူ ဘွဲ့ဝတ်စုံနဲ့
+            ဓာတ်ပုံရိုက်နိုင်ပါစေ။ 🎓❤️
+
+            <br><br>
+
+            အမြဲတမ်း အတူတူရှိနေကြမယ်နော်။ 💕
+
+        </p>
+
+        <p style="text-align:center;font-size:25px;">
+            ❤️ ❤️ ❤️
+        </p>
+
+        <button
+            class="next"
+            onclick="goBack()"
+        >
+            Back to Surprise
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PAGE 5 : CUTE SURPRISE
+========================= -->
+
+<section id="page5" class="page">
+
+<div class="card">
+
+    <div style="font-size:110px;">
+        🧸
+    </div>
+
+    <h1>
+        Another Little Surprise 💕
+    </h1>
+
+    <p>
+        တောသားလေးအတွက် surprise လေးပါ 🎁
+    </p>
+
+    <p style="font-size:28px;">
+        ❤️ 💕 💗 💖 ❤️
+    </p>
+
+    <button
+        class="next"
+        onclick="goBack()"
+    >
+        Back to Surprise
+    </button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PAGE 6 : COUNTDOWN
+========================= -->
+
+<section id="page6" class="page">
+
+<div class="card">
+
+    <div id="countdown" class="countdown">
+        3
+    </div>
+
+    <h2>
+        Get Ready... 🎂
+    </h2>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PAGE 7 : CAKE
+========================= -->
+
+<section id="page7" class="page">
+
+<div class="card">
+
+    <div class="final-title">
+        HAPPY BIRTHDAY ❤️
+    </div>
+
+    <p>
+        တောသားလေး 🎂
+    </p>
+
+    <div class="cake">
+        🎂
+    </div>
+
+    <h2>
+        1 • 10 • 2026
+    </h2>
+
+    <p>
+        Make a wish... ✨
+    </p>
+
+    <!--
+       IMPORTANT:
+       Upload your music to GitHub
+       and name it birthday.mp3
+    -->
+
+    <audio
+        id="birthdayMusic"
+        controls
+        loop
+    >
+        <source src="birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <br>
+
+    <button
+        class="next"
+        onclick="celebrate()"
+    >
+        🎉 Celebrate 🎉
+    </button>
+
+</div>
+
+</section>
+
+
+
+<script>
+
+/* =========================
+   PASSWORD
+========================= */
+
+const PASSWORD = "19";
+
+let entered = "";
+
+
+function press(number){
+
+    if(entered.length >= 4){
+        return;
+    }
+
+    entered += number;
+
+    updateDots();
+
+    if(entered === PASSWORD){
+
+        setTimeout(() => {
+
+            goTo(2);
+
+        },500);
+
+    }
+
+    else if(entered.length >= PASSWORD.length){
+
+        document.getElementById("error").innerText =
+            "Wrong password 💔";
+
+        setTimeout(() => {
+
+            entered = "";
+
+            updateDots();
+
+            document.getElementById("error").innerText = "";
+
+        },800);
+
+    }
+
+}
+
+
+function updateDots(){
+
+    for(let i=1;i<=4;i++){
+
+        document.getElementById("dot"+i).innerText =
+            entered[i-1] ? "●" : "";
+
+    }
+
+}
+
+
+function clearCode(){
+
+    entered = "";
+
+    updateDots();
+
+}
+
+
+function deleteNumber(){
+
+    entered =
+        entered.slice(0,-1);
+
+    updateDots();
+
+}
+
+
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+function goTo(number){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
+
+            page.classList.remove("active");
+
+        });
+
+    document
+        .getElementById("page"+number)
+        .classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+
+function goBack(){
+
+    goTo(2);
+
+}
+
+
+
+/* =========================
+   FIRST PHOTO
+========================= */
+
+function showPhoto(){
+
+    goTo(3);
+
+}
+
+
+
+/* =========================
+   SECOND SURPRISE
+========================= */
+
+function showCute(){
+
+    goTo(5);
+
+}
+
+
+
+/* =========================
+   THIRD LETTER
+========================= */
+
+function showLetter(){
+
+    goTo(4);
+
+}
+
+
+
+/* =========================
+   OPEN LETTER
+========================= */
+
+function openLetter(){
+
+    document
+        .getElementById("letter")
+        .style.display = "block";
+
+}
+
+
+
+/* =========================
+   CAKE
+========================= */
+
+function showCake(){
+
+    goTo(6);
+
+    let number = 3;
+
+    document
+        .getElementById("countdown")
+        .innerText = number;
+
+    const timer =
+        setInterval(() => {
+
+            number--;
+
+            if(number > 0){
+
+                document
+                    .getElementById("countdown")
+                    .innerText = number;
+
+            }
+
+            else{
+
+                clearInterval(timer);
+
+                goTo(7);
+
+                playMusic();
+
+            }
+
+        },1000);
+
+}
+
+
+
+/* =========================
+   MUSIC
+========================= */
+
+function playMusic(){
+
+    const music =
+        document.getElementById("birthdayMusic");
+
+    music.currentTime = 0;
+
+    music.play().catch(() => {
+
+        /*
+          Phone browser may block
+          automatic music.
+          User can press play.
+        */
+
+    });
+
+}
+
+
+
+/* =========================
+   CELEBRATE
+========================= */
+
+function celebrate(){
+
+    for(let i=0;i<50;i++){
+
+        setTimeout(() => {
+
+            createHeart();
+
+        },i*70);
+
+    }
+
+}
+
+
+
+/* =========================
+   HEART ANIMATION
+========================= */
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    const symbols =
+        ["❤️","💕","💗","💖","💘","✨","🌸"];
+
+    heart.innerText =
+        symbols[
+            Math.floor(
+                Math.random()*symbols.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random()*100 + "vw";
+
+    heart.style.fontSize =
+        (15 + Math.random()*25) + "px";
+
+    heart.style.animationDuration =
+        (3 + Math.random()*3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    },6000);
+
+}
+
+
+/* Hearts running all the time */
+
+setInterval(createHeart,900);
+
+</script>
+
+</body>
+</html>
