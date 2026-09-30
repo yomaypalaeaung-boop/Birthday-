@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For တောသားလေး ❤️</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:Arial,"Noto Sans Myanmar",sans-serif;
+    background:linear-gradient(135deg,#ffd6e5,#fff0f6,#ffc6dc);
+    color:#9b3158;
+    overflow-x:hidden;
+}
+
+.page{
+    display:none;
+    min-height:100vh;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    text-align:center;
+}
+
+.page.active{
+    display:flex;
+}
+
+.card{
+    width:100%;
+    max-width:450px;
+    padding:28px 20px;
+    background:rgba(255,255,255,.82);
+    border:3px solid white;
+    border-radius:30px;
+    box-shadow:0 15px 40px rgba(170,60,100,.18);
+}
+
+/* ---------- COMMON ---------- */
+
+h1{
+    font-size:34px;
+    margin:10px 0;
+}
+
+h2{
+    margin:10px 0;
+}
+
+p{
+    line-height:1.8;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+}
+
+/* ---------- PASSWORD ---------- */
+
+.ribbon{
+    font-size:55px;
+}
+
+.password-title{
+    font-size:32px;
+    font-weight:bold;
+}
+
+.code-box{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin:20px 0;
+}
+
+.code-dot{
+    width:45px;
+    height:45px;
+    background:white;
+    border:2px solid #d85b80;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+}
+
+.keypad{
+    display:grid;
+    grid-template-columns:repeat(3,65px);
+    justify-content:center;
+    gap:9px;
+}
+
+.key{
+    width:65px;
+    height:55px;
+    border-radius:15px;
+    background:#dc5b80;
+    color:white;
+    font-size:19px;
+    font-weight:bold;
+    box-shadow:0 4px #a93e5e;
+}
+
+.key:active{
+    transform:translateY(3px);
+    box-shadow:0 1px #a93e5e;
+}
+
+.error{
+    color:#e2385d;
+    height:25px;
+}
+
+/* ---------- SURPRISE ---------- */
+
+.surprise-title{
+    font-size:42px;
+    font-weight:bold;
+    color:#d83e70;
+}
+
+.gifts{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:25px;
+}
+
+.gift{
+    min-height:160px;
+    background:white;
+    border:3px solid #f09ab6;
+    border-radius:22px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    cursor:pointer;
+    transition:.3s;
+    padding:10px;
+}
+
+.gift:hover{
+    transform:translateY(-7px);
+}
+
+.gift-icon{
+    font-size:65px;
+}
+
+.gift img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.gift-text{
+    margin-top:7px;
+    font-size:15px;
+    font-weight:bold;
+}
+
+/* ---------- PHOTO ---------- */
+
+.photo{
+    width:100%;
+    max-height:400px;
+    object-fit:cover;
+    border-radius:20px;
+    border:5px solid white;
+    box-shadow:0 7px 25px rgba(0,0,0,.15);
+}
+
+.love-text{
+    font-size:24px;
+    font-weight:bold;
+    color:#d53d6c;
+}
+
+/* ---------- LETTER ---------- */
+
+.envelope{
+    font-size:110px;
+    cursor:pointer;
+    animation:float 2s infinite ease-in-out;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+.letter{
+    display:none;
+    margin-top:20px;
+    background:#fffdf5;
+    border-radius:15px;
+    padding:25px 18px;
+    text-align:left;
+    box-shadow:0 7px 25px rgba(0,0,0,.12);
+    animation:open .8s ease;
+}
+
+@keyframes open{
+
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+.letter-title{
+    text-align:center;
+    color:#d43f6e;
+}
+
+.letter p{
+    font-size:17px;
+}
+
+/* ---------- BUTTON ---------- */
+
+.next{
+    margin-top:20px;
+    padding:14px 28px;
+    border-radius:30px;
+    background:#d9577b;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+}
+
+/* ---------- COUNTDOWN ---------- */
+
+.countdown{
+    font-size:100px;
+    font-weight:bold;
+    color:#d72e65;
+    animation:zoom .9s ease;
+}
+
+@keyframes zoom{
+
+    from{
+        transform:scale(2);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+/* ---------- CAKE ---------- */
+
+.cake{
+    font-size:120px;
+    margin:15px 0;
+    animation:cakeFloat 2s infinite ease-in-out;
+}
+
+@keyframes cakeFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+.final-title{
+    font-size:38px;
+    color:#d63269;
+    font-weight:bold;
+}
+
+/* ---------- HEARTS ---------- */
+
+.heart{
+    position:fixed;
+    top:-30px;
+    pointer-events:none;
+    animation:fall linear forwards;
+    z-index:999;
+}
+
+@keyframes fall{
+
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     PAGE 1 : PASSWORD
+========================= -->
+
+<section id="page1" class="page active">
+
+<div class="card">
+
+    <div class="ribbon">🎀</div>
+
+    <div class="password-title">
+        Enter Password
+    </div>
+
+    <p>
+        A little surprise is waiting for you ❤️
+    </p>
+
+    <div class="code-box">
+
+        <div class="code-dot" id="dot1"></div>
+        <div class="code-dot" id="dot2"></div>
+        <div class="code-dot" id="dot3"></div>
+        <div class="code-dot" id="dot4"></div>
+
+    </div>
+
+    <div class="error" id="error"></div>
+
+    <div class="keypad">
+
+        <button class="key" onclick="press(1)">1</button>
+        <button class="key" onclick="press(2)">2</button>
+        <button class="key" onclick="press(3)">3</button>
+
+        <button class="key" onclick="press(4)">4</button>
+        <button class="key" onclick="press(5)">5</button>
+        <button class="key" onclick="press(6)">6</button>
+
+        <button class="key" onclick="press(7)">7</button>
+        <button class="key" onclick="press(8)">8</button>
+        <button class="key" onclick="press(9)">9</button>
+
+        <button class="key" onclick="clearCode()">C</button>
+        <button class="key" onclick="press(0)">0</button>
+        <button class="key" onclick="deleteNumber()">⌫</button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PAGE 2 : SURPRISE
+========================= -->
+
+<section id="page2" class="page">
+
+<div class="card">
+
+    <div style="font-size:55px;">💗</div>
+
+    <div class="surprise-title">
+        SURPRISE!
+    </div>
+
+    <p>
+        တစ်ခုရွေးကြည့်ပါ ❤️
+    </p>
+
+
+    <div class="gifts">
+
+
+        <!-- FIRST CHOICE : PHOTO -->
+
+        <div class="gift" onclick="showPhoto()">
+
+            <img src="photo.jpg">
+
+            <div class="gift-text">
+                💕 Love You
+            </div>
+
+        </div>
+
+
+        <!-- SECOND CHOICE -->
+
+        <div class="gift" onclick="showCute()">
+
+            <div class="gift-icon">
+                🎁
+            </div>
+
+            <div class="gift-text">
+                A Surprise
+            </div>
+
+        </div>
+
+
+        <!-- THIRD CHOICE : LETTER -->
+
+        <div class="gift" onclick="showLetter()">
+
+            <div class="gift-icon">
+                💌
